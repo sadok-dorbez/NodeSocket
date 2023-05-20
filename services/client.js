@@ -1,19 +1,21 @@
 const { urlencoded } = require('body-parser');
 const express=require('express');
 var router=express.Router();
-const user=require('../modele/user')
+const user=require('../modele/client')
 
 router.get('/show',(req,res,next)=>{
     res.send('You are welcome');
     
 });
 ////////////////////////////////// Post By parameters
-router.post('/add/:name/:email/:cin',(req,res,next)=>{
+router.post('/add/:nom/:prenom/:email/:cin/:isValid',(req,res,next)=>{
     console.log("notre data :"+JSON.stringify(req.params));
     new user({
-        name:req.params.name,
+        nom:req.params.name,
+        prenom:req.params.prenom,
         email:req.params.email,
-        cin:req.params.cin
+        cin:req.params.cin,
+        isValid:req.params.isValid
     }).save((err,data)=>{
         if(err){
             console.log(err);

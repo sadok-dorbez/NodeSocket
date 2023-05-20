@@ -2,13 +2,17 @@ const { default: mongoose } = require('mongoose');
 const mongo=require('mongoose');
 const schema=mongo.Schema;
 
-const User=new schema ({
+const Client=new schema ({
 
-    name: String,
+    nom: String,
+    prenom: String,
     email: String,
-    cin: Number
+    cin: Number,
+    isValid: Boolean
+
+
 
 })
 
 //user: Collection Name
-module.exports= mongo.model("user", User);
+module.exports= mongo.model("client", Client);
