@@ -2,6 +2,7 @@ const { urlencoded } = require('body-parser');
 const express=require('express');
 var router=express.Router();
 const user=require('../modele/client')
+const validate = require("../midll/validate");
 
 router.get('/show',(req,res,next)=>{
     res.send('You are welcome');
@@ -66,7 +67,7 @@ router.delete("/delete/:id",async function(req,res){
 
 ///////////////////////////////////////// Post By Json BodyRequest
 
-router.post("/",(req,res,next)=>{
+router.post("/", validate,(req,res,next)=>{
    // console.log("resultat:"+req.body);
     try{
 

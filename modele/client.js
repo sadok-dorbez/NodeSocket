@@ -1,4 +1,4 @@
-const { default: mongoose } = require('mongoose');
+//const { default: mongoose } = require('mongoose');
 const mongo=require('mongoose');
 const schema=mongo.Schema;
 
@@ -8,8 +8,8 @@ const Client=new schema ({
     prenom: String,
     email: String,
     cin: Number,
-    isValid: Boolean
-
+    isValid: Boolean,
+    tel: Number
 
 
 })
